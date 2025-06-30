@@ -4,15 +4,20 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
+        <h1><%= title %></h1>
+        <a href="/new">Compose New Message</a>
         <ul>
-            <h1><%= title %></h1>
-            <a href="/new">New Message</a>
             <% for(let i = 0; i < messages.length; i++){ %>
                 <li>
-                    <p><%= messages[i].text %></p>
-                    <strong>- <%= messages[i].user %></strong>
-                    <p><%= messages[i].added %></p>
-                    <button>view</button>
+                    <div class="message-head">
+                        <strong> <%= messages[i].user %></strong>
+                        <a class="message-view" href="message/<%=messages[i].id%>">view</a>
+                    </div>
+                    <p class="message-message"><%= messages[i].text %></p>
+                    <p class="message-details-date"><%= messages[i].added %> &nbsp; at &nbsp; <%= messages[i].time %> </p>
+
+                 
+        
                 </li>
             <% } %>
         </ul>

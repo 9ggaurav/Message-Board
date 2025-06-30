@@ -3,6 +3,7 @@ const path = require('path');
 const indexRouter = require('./routes/indexRouter')
 const messages = require("./messagesDB.js")
 
+
 const server = express();
 const PORT = 4000;
 
@@ -19,14 +20,21 @@ server.use(express.static(assetsPath));
 server.use(express.urlencoded({ extended: true }));
 
 
-
-
 server.get("/", (req, res) => {
     res.render("index", { title: "Mini Messageboard", messages: messages });
 })
 
 
 server.use("/new", indexRouter);
+
+server.get("/message/:id", (req, res) => {
+    const message = messages.find(m => m.id === req.params.id);
+    if (!message){
+        return res.status(404).send("Message not found");
+    }
+    res.render("messageDetails", { title: "Message Details", message: message });
+});
+
 
 server.use((err, req, res, next) => {
   console.log(err);

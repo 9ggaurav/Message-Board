@@ -1,16 +1,20 @@
 let messages = [
   {
     id: '1',
-    text: "Hi there!",
+    text: "I just waved back at someone who wasn’t waving at me. Gonna lay low for a decade now.",
     user: "Amando",
-    added: new Date().toISOString().split('T')[0]
+    added: new Date().toLocaleDateString('en-US', {month: 'long', day: 'numeric', year: 'numeric'}),
+    time: new Date().toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit'})
   },
   {
     id: '2',
-    text: "Hello World!",
+    text: "Bananas are berries. But strawberries aren’t. I feel betrayed by science.",
     user: "Charles",
-    added: new Date().toISOString().split('T')[0]
+    added: new Date().toLocaleDateString('en-US', {month: 'long', day: 'numeric', year: 'numeric'}),
+    time: new Date().toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit'})
   }
 ];
 
-module.exports = messages
+
+
+module.exports = messages;

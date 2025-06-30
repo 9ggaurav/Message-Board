@@ -1,21 +1,143 @@
-body{
-    color: red;
-    background-color: yellowgreen;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.montserrat-montserrat {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+*{
+    box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
+h1{
+  padding-bottom: 20px;
+}
+
+body{
+    color: red;
+    background-color: yellowgreen;
+    padding-top: 20px;
+    padding-left: 20px;
+    margin: 0;
+    font-family: montserrat;
+    height: 100vh;
+}
+
 ul {
+  width: 700px;
+  padding-top: 40px;
   list-style-type: none;
-  margin: 0;
-  padding: 0;
+  margin-left: 40px;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   gap: 12px
+
 }
 
 li{
-    border: 1px solid black;
+    border-bottom: 1px solid #ccc;
+    border-left: 2px solid #ccc;
+    /* border-radius: 20px; */
     cursor: pointer;
     padding-left: 40px;
+    max-height: 100px;
+}
+
+.message-details-container {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.message-details {
+    padding: 20px;
+    display: inline-block;
+    position: relative;
+    width: 600px;
+}
+.message-details p {
+    margin: 20px;
+}
+
+
+.message-details div {
+    margin: 0;
+}
+
+.message-details-date {
+  font-size: 0.8rem;
+  padding: 10px 40px;
+}
+
+.message-message {
+    font-size: 1.2rem;
+    margin: 0;
+    padding: 10px 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+.message-head {
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+form{
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+form input[type="text"]{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    /* border-radius: 5px; */
+    outline: none;
+    font-size: 1.2rem;
+    color: red;
+    background-color: rgb(177, 230, 99);
+}
+
+form textarea{
+    width: 100%;
+    height: 400px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    /* border-radius: 5px; */
+    outline: none;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    resize: none;
+    color: red;
+    background-color: rgb(177, 230, 99);
+}
+
+form input[type="submit"]{
+    width: 100%;
+    padding: 10px;
+    color: red;
+    border: none;
+    /* border-radius: 5px; */
+    cursor: pointer;
+    font-size: 1.2rem;
+    background-color: rgb(177, 230, 99);
+} 
+
+form label{
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
 }
