@@ -6,79 +6,88 @@
   font-style: normal;
 }
 
-*{
+* {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
-h1{
-  padding-bottom: 20px;
+h1 {
+    padding-bottom: 20px;
+    color: #333;
+    font-weight: 500;
 }
 
-body{
-    color: red;
-    background-color: rgb(110, 153, 23);
-    padding-top: 20px;
-    padding-left: 20px;
+body {
+    color: #333;
+    background-color: #ffffff;
+    padding: 40px 20px;
     margin: 0;
-    font-family: montserrat;
-    height: 100vh;
+    font-family: "Montserrat", sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
 }
 
 ul {
-  width: 700px;
-  padding-top: 40px;
-  list-style-type: none;
-  margin-left: 40px;
-  display: flex;
-  flex-direction: column-reverse;
-  gap: 12px
-
+    width: 700px;
+    padding-top: 40px;
+    list-style-type: none;
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 16px;
 }
 
-li{
-    border: 1px solid #ccc;
-    border-left: 4px solid #ccc;
-    padding-top: 20px;
-    padding-left: 40px;
-    background-color: yellowgreen;
+li {
+    border: 1px solid #e5e5e5;
+    border-left: 3px solid #666;
+    padding: 20px;
+    background-color: #fafafa;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+li:hover {
+    background-color: #f0f0f0;
+    border-left-color: #333;
 }
 
 .message-details-container {
-    margin-top: 100px;
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .message-details {
-    padding: 20px;
-    display: inline-block;
-    position: relative;
+    padding: 30px;
     width: 600px;
-    background-color: yellowgreen;
+    background-color: #fafafa;
     margin-bottom: 20px;
-}
-.message-details p {
-    margin: 20px;
+    border-radius: 8px;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
+.message-details p {
+    margin: 20px 0;
+}
 
 .message-details div {
     margin: 0;
 }
 
 .message-details-date {
-  font-size: 0.8rem;
-  padding: 10px 40px;
+    font-size: 0.9rem;
+    color: #666;
+    padding: 0 0 10px 0;
 }
 
 .message-message {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin: 0;
-    padding: 10px 40px;
+    padding: 10px 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -90,70 +99,102 @@ li{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 20px;
 }
 
-form{
+form {
     width: 600px;
     margin: 0 auto;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 30px;
+    border-radius: 8px;
+    background-color: #fafafa;
+    border: 1px solid #e5e5e5;
 }
 
-form input[type="text"]{
+form input[type="text"] {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
+    border-radius: 4px;
     outline: none;
-    font-size: 1.2rem;
-    color: red;
-    background-color: rgb(177, 230, 99);
+    font-size: 1rem;
+    color: #333;
+    background-color: #ffffff;
+    transition: border-color 0.2s ease;
 }
 
-form textarea{
+form input[type="text"]:focus {
+    border-color: #666;
+}
+
+form textarea {
     width: 100%;
-    height: 400px;
-    padding: 10px;
+    height: 300px;
+    padding: 12px;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
+    border-radius: 4px;
     outline: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
     line-height: 1.5;
-    resize: none;
-    color: red;
-    background-color: rgb(177, 230, 99);
+    resize: vertical;
+    color: #333;
+    background-color: #ffffff;
+    transition: border-color 0.2s ease;
 }
 
-form input[type="submit"]{
-    width: 100%;
-    padding: 10px;
-    color: red;
-    border: none;
-    cursor: pointer;
-    font-size: 1.2rem;
-    background-color: rgb(177, 230, 99);
-} 
+form textarea:focus {
+    border-color: #666;
+}
 
-form label{
+form input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    color: #ffffff;
+    background-color: #333;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #555;
+}
+
+form label {
     display: block;
-    margin-bottom: 10px;
-    font-size: 1.2rem;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    color: #333;
+    font-weight: 500;
 }
 
 .message-details-message {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    color: #333;
 }
 
 .message-details-author {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    color: #666;
 }
 
 a > button {
     padding: 10px 20px;
-    background-color: yellowgreen;
-    color: red;
-    border: none;
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+a > button:hover {
+    background-color: #e0e0e0;
+    border-color: #ccc;
 }
