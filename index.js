@@ -1,10 +1,13 @@
 const express = require('express');
 const path = require('path');
-const indexRouter = require('./routes/indexRouter')
-const messages = require("./messagesDB.js")
+require('dotenv').config();
+const newBlogRouter = require('./routes/newBlogRouter');
+const indexRouter = require("./routes/indexRouter");
+const blogDetailsRouter = require("./routes/blogDetailsRouter");
+
 
 const server = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 3000;
 
 server.set("views", path.join(__dirname, "views"));
 server.set("view engine", "ejs");
@@ -16,19 +19,9 @@ server.use(express.static(assetsPath));
 server.use(express.urlencoded({ extended: true }));
 
 // Routes
-server.get("/", (req, res) => {
-    res.render("index", { title: "Mini Messageboard", messages: messages });
-})
-
-server.use("/new", indexRouter);
-
-server.get("/message/:id", (req, res) => {
-    const message = messages.find(m => m.id === req.params.id);
-    if (!message){
-        return res.status(404).send("Message not found");
-    }
-    res.render("messageDetails", { title: "Message Details", message: message });
-});
+server.use("/", indexRouter);
+server.use("/new", newBlogRouter);
+server.use("/message", blogDetailsRouter);
 
 // 404 Error Handler middleware
 server.use((err, req, res, next) => {
