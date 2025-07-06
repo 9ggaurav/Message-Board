@@ -4,20 +4,32 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <h1><%= title %></h1>
-        <a href="/new"><button>Compose New Message</button></a>
+        <header>
+            <h1 class="index-title"><%= title %></h1>
+            <nav>
+                <a href="/new">Compose New Message >></a>
+            </nav>
+        </header>
+
+        <hr>
+    
         <ul>
             <% for(let i = 0; i < messages.length; i++){ %>
                 <li>
-                    <div class="message-head">
-                        <strong> <%= messages[i].user %></strong>
-                        <a class="message-view" href="message/<%=messages[i].id%>">view</a>
+                <div class="blog-card-index">
+                    <div class="index-header">
+                        <img class="index-profile-pfp" src="/images/creeper_face_pfp.png" alt="">
+                        <strong class="index-username"> <%= messages[i].username %></strong>
                     </div>
-                    <p class="message-message"><%= messages[i].text %></p>
-                    <p class="message-details-date"><%= messages[i].added %> &nbsp; at &nbsp; <%= messages[i].time %> </p>
+                    <img class="message-thumbnail" src="<%= messages[i].image_url %>" alt="">
+                    <p class="message-blog-title"><strong><%= messages[i].blog_title %></strong></p>
+                    <p class="message-message"><%= messages[i].content %></p>
+                    <div class="index-date-view-section">
+                        <p class="message-details-date"><%= messages[i].created_at %></p>
+                        <a class="message-view" href="message/<%=messages[i].id%>">view more >></a>
+                    </div>
 
-                 
-        
+                </div>
                 </li>
             <% } %>
         </ul>

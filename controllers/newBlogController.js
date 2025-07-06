@@ -1,13 +1,15 @@
-const messages = require("../messagesDB");
-const { nanoid } = require("nanoid");
+const db = require("../db/queries");
+const getFallbackImage = require("../utils/fallbackThumbnail")
 
 const newBlogControllerGet = (req, res) => {
     res.render("form");
 }
 
-const newBlogControllerPost = (req, res) => {
-    const {author, message} = req.body;
-    messages.push({ id: nanoid(), text: message, user: author, added: new Date().toLocaleDateString('en-US', {month: 'long', day: 'numeric', year: 'numeric', timeZone: 'Asia/Kolkata'}), time: new Date().toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Kolkata'}) });
+const newBlogControllerPost = async (req, res) => {
+    let {author, blog_title, message, image_url} = req.body;
+    image_url = image_url || await getFallbackImage.getFallbackImage();
+    console.log(author, blog_title, message, image_url);
+    await db.insertNewBlogandUser(author, blog_title, message, image_url);
     res.redirect("/");
 }
 

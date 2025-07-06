@@ -7,9 +7,10 @@
     <div class="message-details-container">
         <h1>Message Details</h1>
         <div class="message-details">
-            <p class="message-details-author"><strong>Author:</strong>&nbsp; &nbsp;<%= message.user %></p>
-            <p class="message-details-message"><strong>Message:</strong> <%= message.text %></p>
-            <p><strong>Added:</strong> <%= message.added %> &nbsp; at &nbsp; <%= message.time %></p>
+            <p class="message-details-author"><strong>Author:</strong>&nbsp; &nbsp;<%= message.username %></p>
+            <p class="message-details-blog_title"><strong>Title:</strong>&nbsp; &nbsp; <%= message.blog_title %></p>
+            <p class="message-details-message"><strong>Message:</strong> <%= message.content %></p>
+            <p><strong>Added:</strong> <%= message.created_at %> </p>
         </div>
         <a href="/">Back to Home</a>
     </div>

@@ -1,8 +1,10 @@
-const messages = require("../messagesDB");
+// const messages = require("../messagesDB");
+const db = require("../db/queries");
 
-const blogDetailsControllerGet = (req, res) => {
-    const message = messages.find(m => m.id === req.params.id);
-    console.log("Params id is ",req.params.id);
+const blogDetailsControllerGet = async (req, res) => {
+    const messages = await db.getAllForIndexPage();
+    const message = messages.find(m => String(m.id) === req.params.id);
+
     if (!message){
         return res.status(404).send("Message not found");
     }

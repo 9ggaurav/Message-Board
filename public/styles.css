@@ -1,10 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Share+Tech+Mono&display=swap');
 
 .montserrat-montserrat {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
 }
+
+.share-tech-mono-regular {
+  font-family: "Share Tech Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+}
+
 
 * {
     box-sizing: border-box;
@@ -18,33 +25,50 @@ h1 {
     font-weight: 500;
 }
 
+header{
+    width: 928px;
+}
+
 body {
     color: #333;
     background-color: #ffffff;
     padding: 40px 20px;
     margin: 0;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Share Tech Mono", sans-serif;
     line-height: 1.6;
     min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 ul {
-    width: 700px;
-    padding-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, auto); 
+    justify-content: center;                
+    gap: 40px;
     list-style-type: none;
-    margin-left: 40px;
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 16px;
+    padding-top: 40px;
+    margin: 0;  
 }
 
+
 li {
+    display: block;
+    max-width: 500px;
     border: 1px solid #e5e5e5;
     border-left: 3px solid #666;
     padding: 20px;
     background-color: #fafafa;
     border-radius: 4px;
     transition: all 0.2s ease;
+}
+
+.blog-card-index{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
 }
 
 li:hover {
@@ -87,7 +111,6 @@ li:hover {
 .message-message {
     font-size: 1.1rem;
     margin: 0;
-    padding: 10px 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -95,7 +118,7 @@ li:hover {
 }
 
 .message-head {
-    width: 600px;
+    width: 400px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -182,6 +205,12 @@ form label {
     color: #666;
 }
 
+.message-thumbnail {
+    height: 400px;
+    width: auto;
+    max-width: 400px;
+}
+
 a > button {
     padding: 10px 20px;
     background-color: #f0f0f0;
@@ -197,4 +226,40 @@ a > button {
 a > button:hover {
     background-color: #e0e0e0;
     border-color: #ccc;
+}
+
+.index-date-view-section {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.index-title{
+    font-weight: 700;
+}
+
+.index-header{
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+}
+.index-header > strong {
+    font-size: 1.2rem;
+    padding-left: 8px;
+}
+
+.index-profile-pfp{
+    width: 1.3rem;
+    opacity: 0.7;
+}
+
+.message-blog-title{
+    font-size: 1.8rem;
+    padding-top: 4px;
+}
+
+.index-calendar-image{
+    width: 32px
 }
