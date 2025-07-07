@@ -5,6 +5,7 @@ require('dotenv').config()
 
 const LOCAL_POSTGRES_ROLE = process.env.LOCAL_POSTGRES_ROLE;
 const LOCAL_POSTGRES_PASSWORD = process.env.LOCAL_POSTGRES_PASSWORD;
+const PROD_POSTGRES_PASSWORD = process.env.PROD_POSTGRES_PASSWORD;
 
 const SQL = `
 CREATE EXTENSION IF NOT EXISTS "pgcrypto";
@@ -56,6 +57,24 @@ async function main(){
                 console.log("done");
             }
         }
+    }else if(environment === 'prod'){
+        console.log(`Seeding ${environment} ....`);
+        let client;
+        try{
+            client = new Client({
+            connectionString: `postgresql://neondb_owner:${PROD_POSTGRES_PASSWORD}@ep-tight-butterfly-a8twurt9-pooler.eastus2.azure.neon.tech/neondb?sslmode=require&channel_binding=require`
+            });
+            await client.connect();
+            await client.query(SQL);
+        }catch(error){
+            console.log("Seeding failed : ", error);
+        }finally{
+            if (client){
+                await client.end();
+                console.log("done");
+            }
+        }
+
     }
 }
 

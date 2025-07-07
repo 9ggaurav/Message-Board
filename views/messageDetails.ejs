@@ -5,15 +5,27 @@
 </head>
 <body>
     <div class="message-details-container">
-        <h1>Message Details</h1>
-        <div class="message-details">
-            <p class="message-details-author"><strong>Author:</strong>&nbsp; &nbsp;<%= message.username %></p>
-            <p class="message-details-blog_title"><strong>Title:</strong>&nbsp; &nbsp; <%= message.blog_title %></p>
-            <p class="message-details-message"><strong>Message:</strong> <%= message.content %></p>
-            <p><strong>Added:</strong> <%= message.created_at %> </p>
+
+    <% if (message.image_url) { %>
+        <img src="<%= message.image_url %>" alt="Post thumbnail" class="message-thumbnail">
+    <% } %>
+
+    <div class="message-details-card">
+        <h1 class="details-title">>_ Message Details</h1>
+
+        <p><strong>Author:</strong> <%= message.username %></p>
+        <p><strong>Title:</strong> <%= message.blog_title %></p>
+
+        <div class="message-body">
+            <pre><%= message.content %></pre>
         </div>
-        <a href="/">Back to Home</a>
+
+        <p class="details-timestamp"><strong>Added:</strong> <%= message.created_at %></p>
     </div>
+
+    <a href="/" class="back-link">← Back to Home</a>
+</div>
+
     
 </body>
 </html>

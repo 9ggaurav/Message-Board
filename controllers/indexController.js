@@ -4,7 +4,7 @@ const displayAllMessagesGet = async (req, res) => {
 
     const messages = await db.getAllForIndexPage()
     res.render("index", {
-        title: ">_ stdout",
+        title: "Stdout",
         messages: messages,
     })
 }
